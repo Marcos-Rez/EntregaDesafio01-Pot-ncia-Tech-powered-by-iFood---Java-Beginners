@@ -1,10 +1,17 @@
 package br.com.dio.desafio.dominio;
 
-public class Usuario {
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+
+public abstract class Funcionario {
     private String nome;
     private Integer senha;
 
-    public Usuario(String nome, Integer senha) {
+    private LocalDateTime horario;
+
+    public abstract LocalDateTime controleDePonto();
+
+    public Funcionario(String nome, Integer senha) {
         this.nome = nome;
         this.senha = senha;
     }
