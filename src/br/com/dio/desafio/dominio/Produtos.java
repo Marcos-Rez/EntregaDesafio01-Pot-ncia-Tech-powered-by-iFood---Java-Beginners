@@ -2,7 +2,7 @@ package br.com.dio.desafio.dominio;
 
 import java.util.*;
 
-public class Produtos {
+public class Produtos{
     private Integer codigo;
     private String marca;
     private String descricao;
@@ -14,37 +14,17 @@ public class Produtos {
         this.descricao = descricao;
         this.quantidade = quantidade;
     }
-    public Produtos(){
-
-    }
-
-    Map<Integer, Produtos> produtos = new HashMap<>();
-
-    public Produtos getCodigo(Integer codigo){
-        return produtos.get(codigo);
-    }
-
-    public void setProdutos(Integer codigo, String marca, String descricao, Integer quantidade ){
-        Map<Integer, Produtos> produtos = new HashMap<>();
-        produtos.put(codigo, new Produtos(codigo, marca, descricao, quantidade));
-    }
-
-
-
-    /*public void setProdutos(Produtos produtos.codigo) {
-        produtos.put(codigo);
-    }*/
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Produtos produtos1 = (Produtos) o;
-        return Objects.equals(descricao, produtos1.descricao) && Objects.equals(codigo, produtos1.codigo) && Objects.equals(quantidade, produtos1.quantidade) && Objects.equals(produtos, produtos1.produtos);
+        Produtos produtos = (Produtos) o;
+        return Objects.equals(codigo, produtos.codigo) && Objects.equals(marca, produtos.marca) && Objects.equals(descricao, produtos.descricao) && Objects.equals(quantidade, produtos.quantidade);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(descricao, codigo, quantidade, produtos);
+        return Objects.hash(codigo, marca, descricao, quantidade);
     }
 }
